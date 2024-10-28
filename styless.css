@@ -360,3 +360,73 @@ button#submitVote:hover {
     border-radius: 8px;
     line-height: 1.6;
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Adjusting News Cards */
+    .news-card {
+        width: 90%; /* Wider for smaller screens */
+        margin: 10px auto; /* Centered with some margin */
+        padding: 15px; /* Less padding */
+    }
+
+    .news-card iframe,
+    .rank-table iframe {
+        height: 250px; /* Reduced height for iframes */
+    }
+
+    /* Hero Section Adjustments */
+    .hero {
+        padding: 150px 20px; /* Reduced padding */
+    }
+
+    .hero h1 {
+        font-size: 30px; /* Smaller font size */
+    }
+
+    .hero p {
+        font-size: 18px; /* Smaller font size */
+    }
+
+    /* Header Navigation */
+    header nav ul {
+        flex-direction: column; /* Stack items vertically */
+        gap: 10px; /* Reduced gap */
+    }
+
+    /* Rankings Section */
+    .rank-table {
+        width: 90%; /* Adjust width */
+        margin: 10px auto; /* Centered */
+    }
+
+    /* Teams Section */
+    .work-list {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust grid */
+    }
+
+    /* Poll Section */
+    .poll-section {
+        padding: 20px; /* Reduced padding */
+    }
+
+    .poll-options label {
+        font-size: 1rem; /* Smaller font size */
+    }
+
+    button#submitVote {
+        width: 100%; /* Full-width button */
+        font-size: 1rem; /* Smaller font size */
+    }
+
+    /* General Adjustments */
+    .rankings h2,
+    .news-section h2 {
+        font-size: 24px; /* Adjust heading sizes */
+    }
+
+    .poll-results {
+        font-size: 1rem; /* Smaller font size */
+    }
+}
+
