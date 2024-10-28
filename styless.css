@@ -1,0 +1,362 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #6c5905;
+    --secondary-color: #948800;
+    --accent-color: #f8f404;
+    --text-color: #e6eff2;
+    --background-dark: #4b4848e8;
+    --header-bg: #000000;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent-color);
+}
+
+/* Header Styles */
+header {
+    background-color: var(--header-bg);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul a {
+    color: var(--accent-color);
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+header nav ul a:hover {
+    color: #fff;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('cric_bag.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: left;
+    padding: 250px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.hero h1 {
+    font-size: 50px;
+    margin-bottom: 10px;
+    color: #000;
+    padding-left: 20px;
+}
+
+.hero p {
+    font-size: 30px;
+    color: #fff;
+    padding-left: 20px;
+}
+
+/* News Section */
+ .news-section {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #1b1b1f;
+    color: #000;
+}
+
+.news-section h2 {
+    font-size: 32px;    
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.news-section p {
+    color: #fff;
+}
+
+.news-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.news-card {
+    width: 100%;
+    max-width: 700px;
+    margin: 0px auto;
+    padding: 20px;
+    background-color: #e2d5d5;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    gap : 0px;
+}
+
+.news-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+
+.news-card iframe {
+    width: 100%;
+    height: 400px;
+    border: none;
+    border-radius: 8px;
+} 
+.news-card2 iframe{
+    width:500px;
+    height: 400px;
+    border-radius: 10px;
+}
+
+/* Rankings Section */
+
+
+ .rankings {
+    padding: 50px 0px;
+    text-align: center;
+    background-color: #282830;
+    color: #fff;
+}
+
+.rankings h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #fcfbfb;
+}
+
+.rank-table {
+    display: inline-block;
+    width: 100%;
+    max-width: 390px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rank-table:hover {
+    transform: translateY(-10px); 
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); 
+}
+.rank-table iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+    border-radius: 30px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .news-card iframe,
+    .rank-table iframe {
+        height: 300px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 20px;
+    }
+
+    header nav ul {
+        gap: 15px;
+    }
+} 
+/* Teams Section */
+#Teams {
+    padding: 50px 0;
+    background-color: #1b1b1f; 
+    color: #ffffff; 
+}
+
+.sub-title{
+    margin-left: 25px;
+}
+
+.work-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    grid-gap: 15px;
+    margin-top: 40px;
+    margin-left: 15px;
+    
+}
+
+.work {
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    background-color: #282830; 
+    transition: transform 0.3s ease;
+}
+
+/* Team Icon Style */
+.work img {
+    width: 70%; /* Smaller size */
+    height: 90%;
+    max-width: 120px;
+    margin: auto;
+    border-radius: 10px;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+/* Overlay Layer */
+.layer {
+    width: 100%;
+    height: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), #ff3f81); /* Darker gradient with a vibrant pink highlight */
+    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 20px;
+    text-align: center;
+    font-size: 14px;
+    transition: height 0.5s ease, background 0.3s ease;
+    color: #fff;
+}
+
+.layer h3 {
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+
+
+.work:hover img {
+    transform: scale(1.25);
+}
+
+.work:hover .layer {
+    height: 100%;
+}
+
+.poll-section {
+    padding: 30px;
+    background-color: #282c34; /* Dark background */
+    color: #ffffff; /* White text for contrast */
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.poll-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ff3f81; /* Highlighted color */
+}
+
+.poll-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.poll-options label {
+    display: flex;
+    align-items: center;
+    background: #3b404a;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: transform 0.3s, background 0.3s;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.poll-options input[type="radio"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.poll-options label:hover {
+    background: #ff3f81; /* Hover color for labels */
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+button#submitVote {
+    padding: 10px 30px;
+    font-size: 1.1rem;
+    background-color: #ff3f81;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button#submitVote:hover {
+    background-color: #ff2a68;
+    transform: scale(1.05);
+}
+
+#voteMessage {
+    font-size: 1rem;
+    color: #ff3f81;
+    margin-top: 15px;
+}
+
+.poll-results {
+    margin-top: 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #3b404a;
+    padding: 15px;
+    border-radius: 8px;
+    line-height: 1.6;
+}

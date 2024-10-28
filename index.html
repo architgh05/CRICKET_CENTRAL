@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Central</title>
+    <link rel="stylesheet" href="styless.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">Cricket Central</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#rankings">Rankings</a></li>
+                <li><a href="#Teams">Teams</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Welcome to Cricket Central</h1>
+        <p>Your one-stop for all cricket updates</p>
+    </section>
+
+    <!-----polls------>
+    <section id="poll" class="poll-section">
+        <h2>POLL</h2>
+        <div class="poll-options">
+            <label>
+                <input type="radio" name="team" value="INDIA" onclick="vote('INDIA')">
+                INDIA
+            </label>
+            <label>
+                <input type="radio" name="team" value="AUSTRALIA" onclick="vote('AUSTRALIA')">
+                AUSTRALIA
+            </label>
+            <label>
+                <input type="radio" name="team" value="ENGLAND" onclick="vote('ENGLAND')">
+                ENGLAND
+            </label>
+            <label>
+                <input type="radio" name="team" value="SOUTH AFRICA" onclick="vote('SOUTH AFRICA')">
+                SOUTH AFRICA
+            </label>
+            <label>
+                <input type="radio" name="team" value="NEW ZEALAND" onclick="vote('NEW ZEALAND')">
+                NEW ZEALAND
+            </label>
+        </div>
+        <button id="submitVote" onclick="showResults()">Submit Vote</button>
+        <p id="voteMessage"></p>
+        <div id="poll-results" class="poll-results"></div>
+    </section>
+    
+    <script>
+        // Initialize vote counts from localStorage or set default counts
+        let votes = JSON.parse(localStorage.getItem("votes")) || {
+            "INDIA": 0,
+            "AUSTRALIA": 0,
+            "ENGLAND": 0,
+            "SOUTH AFRICA": 0,
+            "NEW ZEALAND": 0
+        };
+    
+        // Check if the user has already voted
+        let hasVoted = localStorage.getItem("hasVoted") || false;
+    
+        // Display a message if the user has already voted
+        function displayPreviousVoteMessage() {
+            if (hasVoted === "true") {
+                document.getElementById("voteMessage").textContent = "You have already voted!";
+                document.querySelectorAll(".poll-options input").forEach(input => {
+                    input.disabled = true;
+                });
+            }
+        }
+    
+        function vote(team) {
+            if (hasVoted === "true") {
+                document.getElementById("voteMessage").textContent = "You have already voted!";
+                return;
+            }
+    
+            // Increment the selected team's votes
+            votes[team]++;
+            localStorage.setItem("votes", JSON.stringify(votes)); // Save updated votes to localStorage
+            hasVoted = true;
+            localStorage.setItem("hasVoted", true); // Mark the user as having voted
+            
+            // Disable options and show confirmation message
+            document.querySelectorAll(".poll-options input").forEach(input => {
+                input.disabled = true;
+            });
+            document.getElementById("voteMessage").textContent = `Thanks for voting for ${team}!`;
+        }
+    
+        function showResults() {
+            // Prevent results display if no vote has been cast
+            if (hasVoted !== "true") {
+                document.getElementById("voteMessage").textContent = "Please vote first to see the results.";
+                return;
+            }
+    
+            // Generate results display
+            const resultsDiv = document.getElementById("poll-results");
+            resultsDiv.innerHTML = `
+                <p>INDIA: ${votes["INDIA"]} votes</p>
+                <p>AUSTRALIA: ${votes["AUSTRALIA"]} votes</p>
+                <p>ENGLAND: ${votes["ENGLAND"]} votes</p>
+                <p>SOUTH AFRICA: ${votes["SOUTH AFRICA"]} votes</p>
+                <p>NEW ZEALAND: ${votes["NEW ZEALAND"]} votes</p>
+            `;
+        }
+    
+        // Run on page load to show previous vote status if any
+        window.onload = displayPreviousVoteMessage;
+    </script>
+    
+    
+   <!-- Latest Indian Cricket News -->
+<section id="news" class="news-section">
+    <h2>Latest Updates</h2>
+    <!-- <p>Stay updated with the latest developments in Indian cricket!</p> -->
+    
+    <div class="news-container">
+        <div class="news-card">
+            <iframe
+                width="1000"
+                height="500"
+                src="https://cricket.one/"
+                title="Latest Indian Cricket News"
+                aria-label="Embedded cricket news feed from cricket.one"
+                allowfullscreen>
+            </iframe>
+        </div>
+        <div class="news-container">
+            <div class="news-card2">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/_CFS5uZCcTw?si=02KIUhwXcTjajP9g&amp;start=385" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+    </div>
+</section>
+
+
+    <!-- Recent team rankings -->
+    <section id="rankings" class="rankings">
+        <h2>ICC TEAM RANKINGS</h2>
+        <div class="rank-table">
+            <iframe width="400" height="500" src="https://www.icc-cricket.com/rankings/team-rankings/mens/test" allowfullscreen></iframe> 
+        </div>
+        <div class="rank-table">
+            <iframe width="400" height="500" src="https://www.icc-cricket.com/rankings/team-rankings/mens/odi" allowfullscreen></iframe> 
+        </div>
+        <div class="rank-table">
+            <iframe width="400" height="500" src="https://www.icc-cricket.com/rankings/team-rankings/mens/t20i" allowfullscreen></iframe> 
+        </div>
+        
+    </section>
+
+    <!-- Teams Section -->
+    <div id="Teams">
+        <div class="container">
+            <h1 class = "sub-title">TOP TEAMS</h1>
+            <div class ="work-list">
+                <div class="work">
+                    <img src="Cricket_India_Crest.svg">
+                    <div class ="layer">
+                        <h3>India</h3>
+                        <p>
+                            <ul> 
+                                <li>2 - ODI WC</li>
+                                <li>2 - T20I WC</li>
+                                <li>2 - Champion's Trophy</li>
+                                <li>5 - TEST MACE</li>
+                                               
+                            
+                            </ul>
+                       
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="Cricket_Australia.png">
+                    <div class ="layer">
+                        <h3>AUSTRALIA</h3>
+                        <p>
+                            <ul> 
+                                <li>6 - ODI WC</li>
+                                <li>1 - T20I WC</li>
+                                <li>2 - Champion's Trophy</li>
+                                <li>9 - TEST MACE</li>                                             
+                            
+                            </ul>
+                       
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="download.png">
+                    <div class ="layer">
+                        <h3>England</h3>
+                        <p>
+                            <ul> 
+                                <li>1 - ODI WC</li>
+                                <li>2 - T20I WC</li>
+                                <li>0 - Champion's Trophy</li>
+                                <li>1 - TEST MACE</li>
+                                               
+                            
+                            </ul>
+                       
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="download (1).png">
+                    <div class ="layer">
+                        <h3>New Zealand</h3>
+                        <p>
+                            <ul> 
+                                <li>0 - ODI WC</li>
+                                <li>0 - T20I WC</li>
+                                <li>1 - Champion's Trophy</li>
+                                <li>1 - TEST MACE</li>
+                                               
+                            
+                            </ul>
+                       
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="Southafrica_cricket_logo.svg.png">
+                    <div class ="layer">
+                        <h3>South Africa</h3>
+                        <p>
+                            <ul> 
+                                <li>0 - ODI WC</li>
+                                <li>0 - T20I WC</li>
+                                <li>0 - Champion's Trophy</li>
+                                <li>3 - TEST MACE</li>                                              
+                            
+                            </ul>
+                       
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="images.jpeg">
+                    <div class ="layer">
+                        <h3>Pakistan</h3>
+                        <p>
+                            <ul> 
+                                <li>1 - ODI WC</li>
+                                <li>1 - T20I WC</li>
+                                <li>1 - Champion's Trophy</li>
+                                <li>0 - TEST MACE</li>                                             
+                            
+                            </ul>
+                       
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="images.png">
+                    <div class ="layer">
+                        <h3>Bangladesh</h3>
+                        <p>
+                            <ul> 
+                                <li>0 - ODI WC</li>
+                                <li>0 - T20I WC</li>
+                                <li>0 - Champion's Trophy</li>
+                                <li>0 - TEST MACE</li>
+                                               
+                            
+                            </ul>
+                       
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="Sri_Lanka_Cricket_Logo.jpg">
+                    <div class ="layer">
+                        <h3>Sri Lanka</h3>
+                        <p>
+                            <ul> 
+                                <li>1 - ODI WC</li>
+                                <li>1 - T20I WC</li>
+                                <li>1 - Champion's Trophy</li>
+                                <li>0 - TEST MACE</li>
+                                               
+                            
+                            </ul>
+                       
+                    </div>
+                </div>
+    
+     
+</body>
+</html> 
