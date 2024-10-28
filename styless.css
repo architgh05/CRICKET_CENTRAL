@@ -362,30 +362,35 @@ button#submitVote:hover {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     /* Adjusting News Cards */
     .news-card {
-        width: 90%; /* Wider for smaller screens */
-        margin: 10px auto; /* Centered with some margin */
-        padding: 15px; /* Less padding */
+        width: 100%; 
+        height: 700px;
+        margin: 10px auto; 
+        padding:10px; 
     }
 
     .news-card iframe,
     .rank-table iframe {
-        height: 250px; /* Reduced height for iframes */
+        height: 600px; /* Reduced height for iframes */
+    }
+    .news-card2 iframe {
+        height : 250px;
+        width: 450px;
     }
 
     /* Hero Section Adjustments */
     .hero {
-        padding: 150px 20px; /* Reduced padding */
+        padding: 150px 40px; 
     }
 
     .hero h1 {
-        font-size: 30px; /* Smaller font size */
+        font-size: 25px; 
     }
 
     .hero p {
-        font-size: 18px; /* Smaller font size */
+        font-size: 15px; 
     }
 
     /* Header Navigation */
@@ -428,5 +433,7 @@ button#submitVote:hover {
     .poll-results {
         font-size: 1rem; /* Smaller font size */
     }
-}
+   
 
+    
+}
