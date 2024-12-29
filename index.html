@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,7 +16,9 @@
                 <li><a href="#news">News</a></li>
                 <li><a href="#rankings">Rankings</a></li>
                 <li><a href="#Teams">Teams</a></li>
+                
             </ul>
+           
         </nav>
     </header>
 
@@ -26,100 +28,21 @@
         <p>Your one-stop for all cricket updates</p>
     </section>
 
-    <!-----polls------>
-    <section id="poll" class="poll-section">
-        <h2>POLL</h2>
-        <div class="poll-options">
-            <label>
-                <input type="radio" name="team" value="INDIA" onclick="vote('INDIA')">
-                INDIA
-            </label>
-            <label>
-                <input type="radio" name="team" value="AUSTRALIA" onclick="vote('AUSTRALIA')">
-                AUSTRALIA
-            </label>
-            <label>
-                <input type="radio" name="team" value="ENGLAND" onclick="vote('ENGLAND')">
-                ENGLAND
-            </label>
-            <label>
-                <input type="radio" name="team" value="SOUTH AFRICA" onclick="vote('SOUTH AFRICA')">
-                SOUTH AFRICA
-            </label>
-            <label>
-                <input type="radio" name="team" value="NEW ZEALAND" onclick="vote('NEW ZEALAND')">
-                NEW ZEALAND
-            </label>
-        </div>
-        <button id="submitVote" onclick="showResults()">Submit Vote</button>
-        <p id="voteMessage"></p>
-        <div id="poll-results" class="poll-results"></div>
-    </section>
     
-    <script>
-        // Initialize vote counts from localStorage or set default counts
-        let votes = JSON.parse(localStorage.getItem("votes")) || {
-            "INDIA": 0,
-            "AUSTRALIA": 0,
-            "ENGLAND": 0,
-            "SOUTH AFRICA": 0,
-            "NEW ZEALAND": 0
-        };
-    
-        // Check if the user has already voted
-        let hasVoted = localStorage.getItem("hasVoted") || false;
-    
-        // Display a message if the user has already voted
-        function displayPreviousVoteMessage() {
-            if (hasVoted === "true") {
-                document.getElementById("voteMessage").textContent = "You have already voted!";
-                document.querySelectorAll(".poll-options input").forEach(input => {
-                    input.disabled = true;
-                });
-            }
-        }
-    
-        function vote(team) {
-            if (hasVoted === "true") {
-                document.getElementById("voteMessage").textContent = "You have already voted!";
-                return;
-            }
-    
-            // Increment the selected team's votes
-            votes[team]++;
-            localStorage.setItem("votes", JSON.stringify(votes)); // Save updated votes to localStorage
-            hasVoted = true;
-            localStorage.setItem("hasVoted", true); // Mark the user as having voted
-            
-            // Disable options and show confirmation message
-            document.querySelectorAll(".poll-options input").forEach(input => {
-                input.disabled = true;
-            });
-            document.getElementById("voteMessage").textContent = `Thanks for voting for ${team}!`;
-        }
-    
-        function showResults() {
-            // Prevent results display if no vote has been cast
-            if (hasVoted !== "true") {
-                document.getElementById("voteMessage").textContent = "Please vote first to see the results.";
-                return;
-            }
-    
-            // Generate results display
-            const resultsDiv = document.getElementById("poll-results");
-            resultsDiv.innerHTML = `
-                <p>INDIA: ${votes["INDIA"]} votes</p>
-                <p>AUSTRALIA: ${votes["AUSTRALIA"]} votes</p>
-                <p>ENGLAND: ${votes["ENGLAND"]} votes</p>
-                <p>SOUTH AFRICA: ${votes["SOUTH AFRICA"]} votes</p>
-                <p>NEW ZEALAND: ${votes["NEW ZEALAND"]} votes</p>
-            `;
-        }
-    
-        // Run on page load to show previous vote status if any
-        window.onload = displayPreviousVoteMessage;
-    </script>
-    
+    <!-- Fan Wall Section -->
+<section id="fan-wall">
+    <h2>Fan Wall</h2>
+    <textarea id="fan-message" placeholder="Share your thoughts..."></textarea><br>
+    <button id="submit-message">Post</button>
+    <button id="toggle-comments">View Comments</button>
+
+    <div id="message-feed" class="message-feed" style="display: none;">
+        <!-- User comments will appear here -->
+    </div>
+</section>
+
+<script src="script3.js"></script>    
+ 
     
    <!-- Latest Indian Cricket News -->
 <section id="news" class="news-section">
@@ -141,6 +64,7 @@
             <div class="news-card2">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/_CFS5uZCcTw?si=02KIUhwXcTjajP9g&amp;start=385" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
+        </div>
     </div>
 </section>
 
@@ -294,3 +218,4 @@
      
 </body>
 </html> 
+
