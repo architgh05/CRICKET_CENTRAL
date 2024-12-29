@@ -116,7 +116,8 @@ header nav ul a:hover {
 }
 
 .news-card {
-    width: 100%;
+    width: 80%;
+    height: 100%;
     max-width: 700px;
     margin: 0px auto;
     padding: 20px;
@@ -136,7 +137,7 @@ header nav ul a:hover {
 
 .news-card iframe {
     width: 100%;
-    height: 400px;
+    height: 500px;
     border: none;
     border-radius: 8px;
 } 
@@ -144,6 +145,23 @@ header nav ul a:hover {
     width:500px;
     height: 400px;
     border-radius: 10px;
+}
+
+/* Container for the news section */
+.news-container {
+    display: block; /* Ensures vertical stacking */
+    width: 100%;    /* Makes the container full width */
+    margin-bottom: 20px; /* Adds spacing between containers */
+}
+
+/* Styling for individual news cards */
+.news-card,
+.news-card2 {
+    margin: 0 auto; /* Centers the content horizontally */
+    max-width: 100%; /* Ensures the cards are responsive */
+    overflow: hidden; /* Prevents overflow issues */
+    border-radius: 8px; /* Optional: Adds rounded corners for aesthetics */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Optional: Adds shadow for a clean look */
 }
 
 /* Rankings Section */
@@ -186,6 +204,129 @@ header nav ul a:hover {
     border-radius: 30px;
 }
 
+/* Fan Wall Section */
+#fan-wall {
+    background-color: #1e1e2f;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+    margin-bottom: 40px;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+}
+
+/* Section Heading */
+#fan-wall h2 {
+    font-size: 28px;
+    color: #ffcc00; /* Vibrant gold for a fun effect */
+    margin-bottom: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Textarea for user message */
+textarea {
+    width: 100%;
+    height: 120px;
+    padding: 12px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #2b2b3c;
+    border: 2px solid #ffcc00; /* Gold border */
+    border-radius: 8px;
+    margin-bottom: 20px;
+    resize: none;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+textarea:focus {
+    border: 2px solid #00e5ff; /* Neon blue for focus */
+    box-shadow: 0 0 10px #00e5ff;
+    outline: none;
+}
+
+/* Buttons Styling */
+button {
+    background: linear-gradient(135deg, #ffcc00, #ff6f61); /* Gradient for a fun look */
+    color: #000;
+    font-size: 16px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+    margin: 10px 5px;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 4px 15px rgba(255, 204, 0, 0.8);
+}
+
+button:active {
+    transform: scale(1);
+}
+
+/* Message Feed */
+.message-feed {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #2b2b3c;
+    border-radius: 12px;
+    max-height: 300px;
+    overflow-y: auto; /* Scroll if too many messages */
+    box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Individual Messages */
+.message-feed div {
+    background-color: #37374a;
+    color: #ffffff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5);
+    position: relative;
+    font-size: 16px;
+}
+
+.message-feed div::before {
+    content: "🎉";
+    font-size: 18px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+/* Scrollbar Styling */
+.message-feed::-webkit-scrollbar {
+    width: 8px;
+}
+
+.message-feed::-webkit-scrollbar-thumb {
+    background: #ffcc00;
+    border-radius: 4px;
+}
+
+.message-feed::-webkit-scrollbar-track {
+    background: #1e1e2f;
+}
+
+/* Media Query for smaller devices */
+@media (max-width: 768px) {
+    textarea {
+        height: 100px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+}
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .news-card iframe,
@@ -205,7 +346,7 @@ header nav ul a:hover {
         gap: 15px;
     }
 } 
-/* Teams Section */
+/* Teams Section 
 #Teams {
     padding: 50px 0;
     background-color: #1b1b1f; 
@@ -231,11 +372,11 @@ header nav ul a:hover {
     overflow: hidden;
     background-color: #282830; 
     transition: transform 0.3s ease;
-}
+}*/
 
-/* Team Icon Style */
+/* Team Icon Style 
 .work img {
-    width: 70%; /* Smaller size */
+    width: 70%;  
     height: 90%;
     max-width: 120px;
     margin: auto;
@@ -243,6 +384,84 @@ header nav ul a:hover {
     display: block;
     transition: transform 0.6s ease;
 }
+*/
+#Teams{
+    background-color: #0d1117;
+    padding : 20px;
+}
+#Teams .work-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px; /* Spacing between the items */
+}
+
+#Teams .work {
+    flex: 0 0 calc(25% - 20px); /* Each item takes 25% width with some spacing */
+    position: relative; /* For layered hover effect */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background-color: #1c1c1e;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#Teams .work:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+}
+
+#Teams .work img {
+    max-width: 80%; /* Adjust the image size */
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+#Teams .work:hover img {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+#Teams .work h3 {
+    font-size: 18px;
+    color: #f0db4f;
+    margin-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+#Teams .work:hover h3 {
+    color: #ffeb3b;
+}
+
+#Teams .work p {
+    font-size: 14px;
+    color: #ffffff;
+    margin-top: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#Teams .work:hover p {
+    opacity: 2;
+    transform: translateY(0);
+}
+
+#Teams .sub-title {
+    font-size: 24px;
+    color: #f0db4f;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
 
 /* Overlay Layer */
 .layer {
@@ -361,7 +580,11 @@ button#submitVote:hover {
     line-height: 1.6;
 }
 
+
 /* Responsive Design */
+
+
+
 @media (max-width: 600px) {
     /* Adjusting News Cards */
     .news-card {
@@ -437,3 +660,4 @@ button#submitVote:hover {
 
     
 }
+
