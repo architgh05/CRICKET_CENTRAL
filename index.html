@@ -8,19 +8,28 @@
 </head>
 <body>
     <!-- Header Section -->
+    
     <header>
         <div class="logo">Cricket Central</div>
         <nav>
-            <ul>
+            <div class="menu-icon" onclick="toggleMenu()">☰</div>
+            <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#news">News</a></li>
                 <li><a href="#rankings">Rankings</a></li>
-                <li><a href="#Teams">Teams</a></li>
-                
+                <li><a href="#teams">Teams</a></li>
             </ul>
-           
         </nav>
     </header>
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.nav-menu');
+            menu.classList.toggle('show'); // Add/remove 'show' class to toggle visibility
+        }
+    </script>
+    
+
+
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -218,3 +227,4 @@
      
 </body>
 </html> 
+
