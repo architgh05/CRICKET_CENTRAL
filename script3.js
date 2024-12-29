@@ -49,3 +49,4 @@ toggleButton.addEventListener("click", function () {
 
 // Load messages on page load
 window.addEventListener("DOMContentLoaded", loadMessages);
+
